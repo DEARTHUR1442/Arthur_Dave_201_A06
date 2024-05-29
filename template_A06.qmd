@@ -278,8 +278,23 @@ Note: This code should still run successfully even if the numbers were to change
 
 ```{r}
 # Use sapply to return a vector of the median annual temperatures
-median_CO_temps <- sapply(colorado_temps[3:14], median)
-median_CO_temps
+median_CO_temps <- apply(colorado_temps[, 3:14], 1, median)
+
+# Determine the years with the minimum and maximum median temperatures
+min_year <- colorado_temps$year[which.min(median_CO_temps)]
+max_year <- colorado_temps$year[which.max(median_CO_temps)]
+min_year
+max_year
+
+# Determine the minimum and maximum median temperatures
+min_temp <- min(median_CO_temps)
+max_temp <- max(median_CO_temps)
+min_temp
+max_temp
+
+# Print the result
+sprintf("The maximum median annual temperature of ", max_temp, " occured in ", max_year,
+        ", and the minimum median annual temperature of ", min_temp, " occured in ", min_year, ".")
 ```
 
 
