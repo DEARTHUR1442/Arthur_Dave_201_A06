@@ -192,7 +192,9 @@ max_temps <- read_tsv("state_max_temps.tsv") |>
 Calculate the average temperature for each month across the whole data frame (using the data for all three states together).
 
 ```{r}
-
+# Use apply function to generate avg temps for each month
+# Have to use [3:14] part because we don't want to take the "average" over the states or the years
+apply(max_temps[3:14], 2, mean)
 ```
 
 
@@ -207,7 +209,14 @@ Create three new data frames by slicing the data by state.
 No need to print any output here.
 
 ```{r}
+# New Colorado data frame
+colorado_temps <- max_temps[max_temps$state == "CO", ]
 
+# New Ohio data frame
+ohio_temps <- max_temps[max_temps$state == "OH", ]
+
+# New Virginia data frame
+virginia_temps <- max_temps[max_temps$state == "VA", ]
 ```
 
 
@@ -228,7 +237,9 @@ Example (this is NOT the answer just an example of what goes in the {}):
 Note: This code should still run successfully even if the numbers were to change.
 
 ```{r}
-
+# Use sapply to return a vector of the median annual temperatures
+median_CO_temps <- sapply(colorado_temps[3:14], median)
+median_CO_temps
 ```
 
 
