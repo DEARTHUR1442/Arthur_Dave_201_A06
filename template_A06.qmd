@@ -117,7 +117,16 @@ Add a new named element to the end of each player's list called `height`. The he
 Print the `player_info` list to prove you were successful.
 
 ```{r}
+# Create a vector of the heights
+heights_vec <- c(78, 81, 78, 86, 85)
 
+# Iterate through the players and add their height to each individual player list
+for (i in 1:length(player_info)) {
+  player_info[[i]][["height"]]  <- heights_vec[[i]]
+}
+
+# Print the result to prove we were successful
+print(player_info)
 ```
 
 
@@ -129,14 +138,22 @@ Create a new list that contains elements corresponding to each player's `points_
 
 Name each element with the respective player's initials.
 
-ie: The first element of the list will be 33.44693 and the name of this element will be MJ.
+i.e.: The first element of the list will be 33.44693 and the name of this element will be MJ.
 
 Hint: initialize an empty list
 
 Note: this must still run correctly even if the values were to change or if another player were added to the list or if the player order changed.
 
 ```{r}
+# Initialize an empty list for the points per game
+points_per_game <- list()
 
+# Iterate through the list of lists and extract the points per game for each player
+for (player in names(player_info)) {
+  points_per_game[player] <- player_info[[player]]$points / player_info[[player]]$games_played
+}
+
+print(points_per_game)
 ```
 
 
@@ -147,7 +164,11 @@ Use the list created in Part c and an appropriate apply function to round each v
 Store the output as a vector and print the results.
 
 ```{r}
+# Use sapply to store the output as a vector
+rounded_ppg <- sapply(points_per_game, function(x) {round(x, 2)}) # function to round x values to 2 decimal places
 
+# Print the result
+print(rounded_ppg)
 ```
 
 
