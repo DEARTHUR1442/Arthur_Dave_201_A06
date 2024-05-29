@@ -169,6 +169,25 @@ Hint: use `MARGIN = 1:2` to apply the function to each value instead of only a r
 
 ```{r}
 
+# Define a number of digits function
+num_digits <- function(num) {
+  # Define a count for the number of digits
+  count <- 0
+  
+  # Use a while loop to determine when to stop removing digits
+  while (num != 0) {
+    # Remove the last digit by integer division
+    # Add 1 to the count
+    num <- num %/% 10
+    count <- count + 1
+  }
+  
+  # Return the count
+  return(count)
+}
+
+# Define the round function within the apply function
+apply(mat_rand, MARGIN = 1:2, function(x) {round(x, (-1 * num_digits(x)) + 1)})
 ```
 
 
