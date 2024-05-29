@@ -3212,11 +3212,135 @@ Screenshot/image of RStudio
 <li>using indexing</li>
 <li>using names</li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print using indexing</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(player_info[[<span class="dv">2</span>]][[<span class="dv">4</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8162</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print using names</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(player_info<span class="sc">$</span>LJ<span class="sc">$</span>points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8162</code></pre>
+</div>
+</div>
 </section>
 <section id="part-b-3-points" class="level3">
 <h3 class="anchored" data-anchor-id="part-b-3-points">Part b (3 points)</h3>
 <p>Add a new named element to the end of each player’s list called <code>height</code>. The heights in inches are as follows: MJ = 78; LJ = 81; KB = 78; KA = 86; SO = 85.</p>
 <p>Print the <code>player_info</code> list to prove you were successful.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector of the heights</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>heights_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">78</span>, <span class="dv">81</span>, <span class="dv">78</span>, <span class="dv">86</span>, <span class="dv">85</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate through the players and add their height to each individual player list</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(player_info)) {</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  player_info[[i]][[<span class="st">&quot;height&quot;</span>]]  <span class="ot">&lt;-</span> heights_vec[[i]]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result to prove we were successful</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(player_info)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$MJ
+$MJ$name
+[1] &quot;Michael Jordan&quot;
+
+$MJ$postion
+[1] &quot;shooting guard&quot;
+
+$MJ$games_played
+[1] 179
+
+$MJ$points
+[1] 5987
+
+$MJ$assists
+[1] 1022
+
+$MJ$height
+[1] 78
+
+
+$LJ
+$LJ$name
+[1] &quot;LeBron James&quot;
+
+$LJ$postion
+[1] &quot;small forward&quot;
+
+$LJ$games_played
+[1] 287
+
+$LJ$points
+[1] 8162
+
+$LJ$assists
+[1] 2067
+
+$LJ$height
+[1] 81
+
+
+$KB
+$KB$name
+[1] &quot;Kobe Bryant&quot;
+
+$KB$postion
+[1] &quot;shooting guard&quot;
+
+$KB$games_played
+[1] 220
+
+$KB$points
+[1] 5640
+
+$KB$assists
+[1] 1040
+
+$KB$height
+[1] 78
+
+
+$KA
+$KA$name
+[1] &quot;Kareem Abdul-Jabbar&quot;
+
+$KA$postion
+[1] &quot;center&quot;
+
+$KA$games_played
+[1] 237
+
+$KA$points
+[1] 5762
+
+$KA$assists
+[1] 767
+
+$KA$height
+[1] 86
+
+
+$SO
+$SO$name
+[1] &quot;Shaquille O&#39;Neal&quot;
+
+$SO$postion
+[1] &quot;center&quot;
+
+$SO$games_played
+[1] 216
+
+$SO$points
+[1] 5250
+
+$SO$assists
+[1] 582
+
+$SO$height
+[1] 85</code></pre>
+</div>
+</div>
 </section>
 <section id="part-c-3-points" class="level3">
 <h3 class="anchored" data-anchor-id="part-c-3-points">Part c (3 points)</h3>
@@ -3225,44 +3349,134 @@ Screenshot/image of RStudio
 <li><code>points_per_game = points/games_played</code></li>
 </ul>
 <p>Name each element with the respective player’s initials.</p>
-<p>ie: The first element of the list will be 33.44693 and the name of this element will be MJ.</p>
+<p>i.e.: The first element of the list will be 33.44693 and the name of this element will be MJ.</p>
 <p>Hint: initialize an empty list</p>
 <p>Note: this must still run correctly even if the values were to change or if another player were added to the list or if the player order changed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize an empty list for the points per game</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>points_per_game <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate through the list of lists and extract the points per game for each player</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (player <span class="cf">in</span> <span class="fu">names</span>(player_info)) {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  points_per_game[player] <span class="ot">&lt;-</span> player_info[[player]]<span class="sc">$</span>points <span class="sc">/</span> player_info[[player]]<span class="sc">$</span>games_played</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(points_per_game)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$MJ
+[1] 33.44693
+
+$LJ
+[1] 28.43902
+
+$KB
+[1] 25.63636
+
+$KA
+[1] 24.31224
+
+$SO
+[1] 24.30556</code></pre>
+</div>
+</div>
 </section>
 <section id="part-d-1-point" class="level3">
 <h3 class="anchored" data-anchor-id="part-d-1-point">Part d (1 point)</h3>
 <p>Use the list created in Part c and an appropriate apply function to round each value to two decimal places.</p>
 <p>Store the output as a vector and print the results.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use sapply to store the output as a vector</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>rounded_ppg <span class="ot">&lt;-</span> <span class="fu">sapply</span>(points_per_game, <span class="cf">function</span>(x) {<span class="fu">round</span>(x, <span class="dv">2</span>)}) <span class="co"># function to round x values to 2 decimal places</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(rounded_ppg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   MJ    LJ    KB    KA    SO 
+33.45 28.44 25.64 24.31 24.31 </code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="question-3-3-points" class="level2">
 <h2 class="anchored" data-anchor-id="question-3-3-points">Question 3 (3 points)</h2>
 <p>Consider the matrix <code>mat_rand</code> of random numbers below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rand_num <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">10</span>), <span class="fu">sample</span>(<span class="dv">100</span><span class="sc">:</span><span class="dv">999</span>, <span class="dv">10</span>), <span class="fu">sample</span>(<span class="dv">1000</span><span class="sc">:</span><span class="dv">2000</span>, <span class="dv">10</span>))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mat_rand <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(rand_num, <span class="dv">30</span>), <span class="at">ncol =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>rand_num <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">10</span>), <span class="fu">sample</span>(<span class="dv">100</span><span class="sc">:</span><span class="dv">999</span>, <span class="dv">10</span>), <span class="fu">sample</span>(<span class="dv">1000</span><span class="sc">:</span><span class="dv">2000</span>, <span class="dv">10</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>mat_rand <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(rand_num, <span class="dv">30</span>), <span class="at">ncol =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Use an appropriate apply function to round values with 2 digits to the nearest tens, values with 3 digits to the nearest hundreds, and 4 digits to the nearest thousands.</p>
 <p>ie: 91 rounds to 90; 173 rounds to 200; 1450 rounds to 1000</p>
 <p>Hint: use <code>MARGIN = 1:2</code> to apply the function to each value instead of only a row/col.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the random matrix from above so that we can check our work</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mat_rand)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]   79   68   60  299  537
+[2,]  520 1999  995 1633 1608
+[3,]   75  914 1366 1976   10
+[4,] 1725  990   95 1640   46
+[5,] 1787  600   89  583   81
+[6,]  127   17 1486  744 1521</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a number of digits function</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>num_digits <span class="ot">&lt;-</span> <span class="cf">function</span>(num) {</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define a count for the number of digits</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  count <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use a while loop to determine when to stop removing digits</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (num <span class="sc">!=</span> <span class="dv">0</span>) {</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove the last digit by integer division</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add 1 to the count</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    num <span class="ot">&lt;-</span> num <span class="sc">%/%</span> <span class="dv">10</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    count <span class="ot">&lt;-</span> count <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the count</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(count)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the round function within the apply function</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mat_rand, <span class="at">MARGIN =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="cf">function</span>(x) {<span class="fu">round</span>(x, (<span class="sc">-</span><span class="dv">1</span> <span class="sc">*</span> <span class="fu">num_digits</span>(x)) <span class="sc">+</span> <span class="dv">1</span>)})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]   80   70   60  300  500
+[2,]  500 2000 1000 2000 2000
+[3,]   80  900 1000 2000   10
+[4,] 2000 1000  100 2000   50
+[5,] 2000  600   90  600   80
+[6,]  100   20 1000  700 2000</code></pre>
+</div>
+</div>
 </section>
 <section id="question-4-9-points" class="level2">
 <h2 class="anchored" data-anchor-id="question-4-9-points">Question 4 (9 points)</h2>
 <p>Run the below code chunk to load a data frame named <code>max_temps</code> into your Environment. May need to install <code>tidyverse</code> and <code>janitor</code> first in order for this to run. You can install packages by clicking on the <strong>Packages</strong> tab in the bottom right pane followed by clicking <strong>Install</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>temp_url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/biodash/biodash.github.io/master/assets/data/temperature/co_oh_va_max_temp.txt&#39;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>temp_file <span class="ot">&lt;-</span> <span class="st">&#39;state_max_temps.tsv&#39;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> temp_url, <span class="at">destfile =</span> temp_file)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>max_temps <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">&quot;state_max_temps.tsv&quot;</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>temp_url <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/biodash/biodash.github.io/master/assets/data/temperature/co_oh_va_max_temp.txt&#39;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>temp_file <span class="ot">&lt;-</span> <span class="st">&#39;state_max_temps.tsv&#39;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> temp_url, <span class="at">destfile =</span> temp_file)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>max_temps <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">&quot;state_max_temps.tsv&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="part-a-2-points" class="level3">
 <h3 class="anchored" data-anchor-id="part-a-2-points">Part a (2 points)</h3>
 <p>Calculate the average temperature for each month across the whole data frame (using the data for all three states together).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use apply function to generate avg temps for each month</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Have to use [3:14] part because we don&#39;t want to take the &quot;average&quot; over the states or the years</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(max_temps[<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>], <span class="dv">2</span>, mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     jan      feb      mar      apr      may      jun      jul      aug 
+38.89206 41.93598 50.73148 61.35608 71.26111 79.95503 84.17460 82.23571 
+     sep      oct      nov      dec 
+75.92857 64.56296 51.49921 41.11508 </code></pre>
+</div>
+</div>
 </section>
 <section id="part-b-2-points" class="level3">
 <h3 class="anchored" data-anchor-id="part-b-2-points">Part b (2 points)</h3>
@@ -3273,6 +3487,16 @@ Screenshot/image of RStudio
 <li>Slice the data frame to only include the state of Virginia (VA).</li>
 </ul>
 <p>No need to print any output here.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># New Colorado data frame</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>colorado_temps <span class="ot">&lt;-</span> max_temps[max_temps<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&quot;CO&quot;</span>, ]</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># New Ohio data frame</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>ohio_temps <span class="ot">&lt;-</span> max_temps[max_temps<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&quot;OH&quot;</span>, ]</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># New Virginia data frame</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>virginia_temps <span class="ot">&lt;-</span> max_temps[max_temps<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&quot;VA&quot;</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="part-c-5-points" class="level3">
 <h3 class="anchored" data-anchor-id="part-c-5-points">Part c (5 points)</h3>
@@ -3283,6 +3507,25 @@ Screenshot/image of RStudio
 <p>Example (this is NOT the answer just an example of what goes in the {}):</p>
 <p>“The maximum median annual temperature of 68.25 occurred in 2017 and the minimum median annual temperature of 57.15 occurred in 1907.”</p>
 <p>Note: This code should still run successfully even if the numbers were to change.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use sapply to return a vector of the median annual temperatures</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>median_CO_temps <span class="ot">&lt;-</span> <span class="fu">apply</span>(colorado_temps[, <span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>], <span class="dv">1</span>, median)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Determine the years with the minimum and maximum median temperatures</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>min_year <span class="ot">&lt;-</span> colorado_temps<span class="sc">$</span>year[<span class="fu">which.min</span>(median_CO_temps)]</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>max_year <span class="ot">&lt;-</span> colorado_temps<span class="sc">$</span>year[<span class="fu">which.max</span>(median_CO_temps)]</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Determine the minimum and maximum median temperatures</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>min_temp <span class="ot">&lt;-</span> <span class="fu">min</span>(median_CO_temps)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>max_temp <span class="ot">&lt;-</span> <span class="fu">max</span>(median_CO_temps)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">&quot;The maximum median annual temperature of &quot;</span>, max_temp, <span class="st">&quot; occured in &quot;</span>, max_year, </span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;, and the minimum median annual temperature of &quot;</span>, min_temp, <span class="st">&quot; occured in &quot;</span>, min_year, <span class="st">&quot;.&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;The maximum median annual temperature of 63.95 occured in 1934, and the minimum median annual temperature of 50.85 occured in 1984.&quot;</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="question-5-5-points" class="level2">
@@ -3290,6 +3533,29 @@ Screenshot/image of RStudio
 <p>Write a recursive function that calculates the sum of the digits in a number.</p>
 <p>Example: The number 312 would return 6 (3 + 1 + 2)</p>
 <p>Run your function with 935068.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the digits by counting the last digit, removing the last digit, and then using recursion to repeat the process</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>count_digits <span class="ot">&lt;-</span> <span class="cf">function</span>(num) {</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Base case</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (num <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">0</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Determine the last digit of the number</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    last_digit <span class="ot">&lt;-</span> num <span class="sc">%%</span> <span class="dv">10</span> <span class="co"># Modulo --&gt; remainder</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove the last digit for the next iteration</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    num <span class="ot">&lt;-</span> num <span class="sc">%/%</span> <span class="dv">10</span> <span class="co"># Integer division</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add the last digit to the count and repeat the process</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(last_digit <span class="sc">+</span> <span class="fu">count_digits</span>(num))</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the function with the requested number</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">count_digits</span>(<span class="dv">935068</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31</code></pre>
+</div>
+</div>
 </section>
 </section>
 
