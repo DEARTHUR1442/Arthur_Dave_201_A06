@@ -241,6 +241,23 @@ Example: The number 312 would return 6 (3 + 1 + 2)
 Run your function with 935068.
 
 ```{r}
+# Count the digits by counting the last digit, removing the last digit, and then using recursion to repeat the process
+count_digits <- function(num) {
 
+# Base case
+  if (num == 0) {
+    return(0)
+  } else {
+    # Determine the last digit of the number
+    last_digit <- num %% 10 # Modulo --> remainder
+    # Remove the last digit for the next iteration
+    num <- num %/% 10 # Integer division
+    # Add the last digit to the count and repeat the process
+    return(last_digit + count_digits(num))
+  }
+}
+
+# Run the function with the requested number
+print(count_digits(935068))
 ```
 
