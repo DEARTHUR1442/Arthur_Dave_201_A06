@@ -102,7 +102,11 @@ Extract the value `8162` (LeBron James points) in 2 different ways:
 - using names
 
 ```{r}
+# Print using indexing
+print(player_info[[2]][[4]])
 
+# Print using names
+print(player_info$LJ$points)
 ```
 
 
